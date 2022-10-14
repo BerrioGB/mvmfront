@@ -1,26 +1,21 @@
-import logo from "./logo.svg";
 import "./App.css";
+import CompShowSolicitud from "./solicitud/mostrarSolicitud";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CompCreateSolicitud from "./solicitud/crearSolicitud";
+import CompPrincipalPage from "./solicitud/PrincipalPage";
+import CompEditSolicitud from "./solicitud/editarSolicitud";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className="btn btn-primary">
-          <i className="fa-brands fa-react"></i>
-        </button>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CompPrincipalPage />} />
+          <Route path="/show" element={<CompShowSolicitud />} />
+          <Route path="/create" element={<CompCreateSolicitud />} />
+          <Route path="/edit/:id" element={<CompEditSolicitud />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const URI = "http://localhost:8000/products/solicitudes";
 
 const CompShowSolicitud = () => {
-  const [solicitudes, setSolicitud] = useState([]);
+  const [solicituds, setSolicitud] = useState([]);
   useEffect(() => {
     getSolicitud();
   }, []);
@@ -18,26 +18,33 @@ const CompShowSolicitud = () => {
 
   return (
     <div className="container">
+      <h1>Mostrar Las solicitudes</h1>
       <div className="row">
         <div className="col">
           <table className="table">
             <thead className="table-primary">
               <tr>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Actions</th>
+                <th>Radicado</th>
+                <th>Descripcion</th>
+                <th>IDResponsable</th>
+                <th>Correo Solicitante</th>
+                <th>Nombre Solicitante</th>
+                <th>Apellido Solicitante</th>
+                <th>Telefono Solicitante</th>
+                <th>Nombre Empresa</th>
+                <th>ID Tipo Solicitud</th>
+                <th>ID Estado</th>
+                <th>Fecha Solicitud</th>
+                <th>Fecha Respuesta</th>
               </tr>
             </thead>
             <tbody>
-              {solicitudes.map((solicitud) => (
+              {solicituds.map((solicitud) => (
                 <tr key={solicitud.id}>
-                  <td>{solicitud.title}</td>
-                  <td>{solicitud.content}</td>
+                  <td>{solicitud.Radicado}</td>
+                  <td>{solicitud.Descripcion}</td>
                   <td>
-                    <Link
-                      to={`/update/${solicitud.id}`}
-                      className="btn btn-info"
-                    >
+                    <Link to={`/edit/${solicitud.id}`} className="btn btn-info">
                       Editar
                     </Link>
                   </td>
@@ -47,6 +54,9 @@ const CompShowSolicitud = () => {
           </table>
         </div>
       </div>
+      <Link to="/" className="btn btn-info">
+        INICIO
+      </Link>
     </div>
   );
 };
