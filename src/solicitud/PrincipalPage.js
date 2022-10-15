@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
+import logo from "../logomvm.png";
+import adminlogo from "../adminlogo.png";
 
 const CompPrincipalPage = () => {
   return (
-    <div className="container">
+    <div className="prueba">
       <header className="App-header">
-        <Link to="/show">Admin</Link>
+        <Link to="/show" className="admin">
+          <img src={adminlogo} alt="adminlogo" className="adminlogo"></img>
+        </Link>
       </header>
-      <h1>Pagina Principal</h1>
-      <Link to="/create" className="btn btn-light">
-        Nueva solicitud
-      </Link>
+      <div className="container2">
+        <img src={logo} alt="logo" className="logo" />
+      </div>
+      <div className="container1">
+        <h1>¿Algo que nos quieras decir?</h1>
+        <Link to="/create" className="btn btn-light">
+          Nueva solicitud
+        </Link>
+      </div>
     </div>
   );
 };
