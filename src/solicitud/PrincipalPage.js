@@ -15,7 +15,7 @@ const CompPrincipalPage = () => {
       </div>
       <div className="container1">
         <h1>¿Algo que nos quieras decir?</h1>
-        <Link to="/create" className="btn btn-light">
+        <Link to="/create" className="btn btn-primary mt-5">
           Nueva solicitud
         </Link>
       </div>
