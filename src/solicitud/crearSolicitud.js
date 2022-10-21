@@ -2,29 +2,34 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const URI = "http://localhost:8000/products/solicitudes";
+const URI = "http://localhost:8000/products/create";
 
 const CompCreateSolicitud = () => {
   const [Descripcion, setDescripcion] = useState("");
-  const [Telefono, setTelefono] = useState("");
-  const [Correo, setCorreo] = useState("");
-  const [Empresa, setEmpresa] = useState("");
-  const [TSolicitud, setTSolicitud] = useState("");
-  const [Nombre, setNombre] = useState("");
-  const [Apellido, setApellido] = useState("");
+  const [TelefonoSolicitante, setTelefono] = useState("");
+  const [CorreoSolicitante, setCorreo] = useState("");
+  const [NombreEmpresa, setEmpresa] = useState("");
+  const [IdTipoSolicitud, setTSolicitud] = useState("");
+  const [NombreSolicitante, setNombre] = useState("");
+  const [ApellidoSolicitante, setApellido] = useState("");
 
   const navigate = useNavigate();
 
-  const store = async (e) => {
+  const store = async e => {
     e.preventDefault();
+    const Radicado = "MVM-44746";
+    const FechaSolicitud = new Date();
+
     await axios.post(URI, {
+      Radicado: Radicado,
       Descripcion: Descripcion,
-      Telefono: Telefono,
-      Correo: Correo,
-      Empresa: Empresa,
-      TSolicitud: TSolicitud,
-      Nombre: Nombre,
-      Apellido: Apellido,
+      TelefonoSolicitante: TelefonoSolicitante,
+      CorreoSolicitante: CorreoSolicitante,
+      NombreEmpresa: NombreEmpresa,
+      IdTipoSolicitud: IdTipoSolicitud,
+      NombreSolicitante: NombreSolicitante,
+      ApellidoSolicitante: ApellidoSolicitante,
+      FechaSolicitud: FechaSolicitud,
     });
     navigate("/");
   };
@@ -36,19 +41,18 @@ const CompCreateSolicitud = () => {
         <div className="col-3">
           <label className="form-label">Nombre</label>
           <input
-            value={Nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            value={NombreSolicitante}
+            onChange={e => setNombre(e.target.value)}
             type="text"
             className="form-control"
             placeholder="Escribe tu nombre"
           />
         </div>
-
         <div className="col-3">
           <label className="form-label">Apellido</label>
           <input
-            value={Apellido}
-            onChange={(e) => setApellido(e.target.value)}
+            value={ApellidoSolicitante}
+            onChange={e => setApellido(e.target.value)}
             type="text"
             className="form-control"
             placeholder="¿Cual es tu apellido?"
@@ -57,8 +61,8 @@ const CompCreateSolicitud = () => {
         <div className="col-3">
           <label className="form-label">Telefono</label>
           <input
-            value={Telefono}
-            onChange={(e) => setTelefono(e.target.value)}
+            value={TelefonoSolicitante}
+            onChange={e => setTelefono(e.target.value)}
             type="text"
             className="form-control"
             placeholder="Numero para contactarte"
@@ -67,8 +71,8 @@ const CompCreateSolicitud = () => {
         <div className="col-3">
           <label className="form-label">Correo</label>
           <input
-            value={Correo}
-            onChange={(e) => setCorreo(e.target.value)}
+            value={CorreoSolicitante}
+            onChange={e => setCorreo(e.target.value)}
             type="text"
             className="form-control"
             placeholder="Correo electronico"
@@ -77,8 +81,8 @@ const CompCreateSolicitud = () => {
         <div className="col-6">
           <label className="form-label">Empresa</label>
           <input
-            value={Empresa}
-            onChange={(e) => setEmpresa(e.target.value)}
+            value={NombreEmpresa}
+            onChange={e => setEmpresa(e.target.value)}
             type="text"
             className="form-control"
             placeholder="¿De que empresa nos contactas?"
@@ -87,8 +91,8 @@ const CompCreateSolicitud = () => {
         <div className="col-6">
           <label className="form-label">Tipo solicitud</label>
           <input
-            value={TSolicitud}
-            onChange={(e) => setTSolicitud(e.target.value)}
+            value={IdTipoSolicitud}
+            onChange={e => setTSolicitud(e.target.value)}
             type="text"
             className="form-control"
             placeholder="¿Que solicitud realizaras?"
@@ -98,18 +102,16 @@ const CompCreateSolicitud = () => {
           <label className="form-label">Descripcion</label>
           <textarea
             value={Descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
+            onChange={e => setDescripcion(e.target.value)}
             type="text"
             className="form-control"
             placeholder="Cuentanos mas sobre tu solicitud"
           />
         </div>
-      </form>
-      <Link to="/">
-        <button type="Submit" className="btn btn-primary g-3 mt-5">
+        <button type="submit" className="btn btn-primary g-3 mt-5">
           Enviar solicitud
         </button>
-      </Link>
+      </form>
     </div>
   );
 };

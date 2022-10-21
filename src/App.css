@@ -2,7 +2,6 @@
   background-image: url("./fondoPrincipalPage.png");
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
   background-size: cover;
   color: white;
   text-align: center;
@@ -28,4 +27,8 @@
 }
 .adminlogo {
   height: 50px;
+}
+
+.table-responsive {
+  text-align: left;
 }
