@@ -5,12 +5,17 @@ import adminlogo from "../adminlogo.png";
 const CompPrincipalPage = () => {
   return (
     <div className="prueba">
-      <header className="App-header">
-        <Link to="/show" className="admin">
-          <img src={adminlogo} alt="adminlogo" className="adminlogo"></img>
+      <header className="App-header1">
+        <Link to="/" className="logop">
+          <img src={logo} alt="logop" className="logop"></img>
         </Link>
       </header>
       <div className="container2">
+        <header className="App-header2">
+          <Link to="/show" className="admin">
+            <img src={adminlogo} alt="adminlogo" className="adminlogo"></img>
+          </Link>
+        </header>
         <img src={logo} alt="logo" className="logo" />
       </div>
       <div className="container1">

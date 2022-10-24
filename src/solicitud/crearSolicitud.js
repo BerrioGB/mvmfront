@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../logomvm.png";
 
 const URI = "http://localhost:8000/products/create";
 
@@ -36,7 +37,11 @@ const CompCreateSolicitud = () => {
 
   return (
     <div className="container">
-      <h1> VISTA PARA CREAR</h1>
+      <header className="App-header1">
+        <Link to="/" className="logop">
+          <img src={logo} alt="logop" className="logop"></img>
+        </Link>
+      </header>
       <form onSubmit={store} className="row g-3 mt-5">
         <div className="col-3">
           <label className="form-label">Nombre</label>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import logo from "../logomvm.png";
 
 const URI = "http://localhost:8000/products/solicitudes";
 
@@ -18,6 +19,11 @@ const CompShowSolicitud = () => {
 
   return (
     <div className="container">
+      <header className="App-header1">
+        <Link to="/" className="logop">
+          <img src={logo} alt="logop" className="logop"></img>
+        </Link>
+      </header>
       <h1>Mostrar Las solicitudes</h1>
       <div className="table-responsive">
         <div className="row ">
@@ -37,6 +43,7 @@ const CompShowSolicitud = () => {
                   <th>Fecha Solicitud</th>
                   <th>Fecha Respuesta</th>
                   <th>Descripcion</th>
+                  <th>Editar</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,6 +61,14 @@ const CompShowSolicitud = () => {
                     <td>{Solicitud.FechaSolicitud}</td>
                     <td>{Solicitud.FechaRespuesta}</td>
                     <td>{Solicitud.Descripcion}</td>
+                    <td>
+                      <Link
+                        to={`/edit/${Solicitud.IDSolicitud}`}
+                        className="btn btn-info"
+                      >
+                        Editar
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>

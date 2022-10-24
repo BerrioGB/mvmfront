@@ -13,13 +13,17 @@
   grid-template-columns: repeat(2, 50%);
 }
 
-.App-header {
+.App-header1 {
   text-align: left;
+}
+
+.App-header2 {
+  text-align: right;
 }
 
 .logo {
   position: relative;
-  top: 220px;
+  top: 180px;
   right: 80px;
 }
 .admin {
@@ -31,4 +35,8 @@
 
 .table-responsive {
   text-align: left;
+}
+
+.logop {
+  width: 200px;
 }
