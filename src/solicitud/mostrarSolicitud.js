@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../logomvm.png";
 
-const URI = "http://localhost:8000/products/solicitudes";
+const URI = "https://mvmbackend.azurewebsites.net/products/solicitudes";
 
 const CompShowSolicitud = () => {
   const [Solicitudes, setSolicitud] = useState([]);
@@ -24,7 +24,6 @@ const CompShowSolicitud = () => {
           <img src={logo} alt="logop" className="logop"></img>
         </Link>
       </header>
-      <h1>Mostrar Las solicitudes</h1>
       <div className="table-responsive">
         <div className="row ">
           <div className="col">
@@ -76,9 +75,6 @@ const CompShowSolicitud = () => {
           </div>
         </div>
       </div>
-      <Link to="/" className="btn btn-info">
-        INICIO
-      </Link>
     </div>
   );
 };

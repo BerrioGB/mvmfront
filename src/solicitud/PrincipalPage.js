@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "../logomvm.png";
 import adminlogo from "../adminlogo.png";
+import { config } from "../config";
+import { PublicClientAppApliccation } from "@azure/msal-browser";
 
 const CompPrincipalPage = () => {
   return (
